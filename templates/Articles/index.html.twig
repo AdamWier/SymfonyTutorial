@@ -3,22 +3,22 @@
 {% block title %} Symfart Articles {% endblock %}
 
 {% block body %}
-     {% if articles %}
-     <table class="table table-striped">
+    {% if articles %}
+    <table class="table table-striped">
         <thead>
-        <tr>
-        <th>Article Title<:th>
-        <th>Actions</th>
-        </tr>
+            <tr>
+                <th>Article Title</th>
+                <th>Actions</th>
+            </tr>
         </thead>
         <tbody>
-        {% for article in articles %}
-        <tr>
-        <td>{{article}}</td>
-        <td><a class="btn btn-dark" href="article/1/">Show</a>
-        </tr>
-        {% endfor %}
-     {% else %}
-     <p>No articles to display</p>
-     {% endif %}
+            {% for article in articles %}
+                <tr>
+                    <td>{{article}}</td>
+                    <td><a class="btn btn-dark" href="article/1/">Show</a>
+                </tr>
+            {% endfor %}
+    {% else %}
+    <p>No articles to display</p>
+    {% endif %}
 {% endblock %}
