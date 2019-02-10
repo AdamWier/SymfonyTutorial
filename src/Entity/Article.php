@@ -44,6 +44,6 @@ class Article
     }
 
     public function setBody($body){
-        $this->title = $body;
+        $this->body = $body;
     }
 }

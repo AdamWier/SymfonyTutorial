@@ -23,20 +23,20 @@ class ArticleController extends Controller {
         return $this->render('articles/index.html.twig', array ("articles"=>$articles));
     }
 
-    /**
-     * @Route("/article/save")
-     */
-    public function save(){
-        $entityManager = $this->getDoctrine()->getManager();
+    // /**
+    //  * @Route("/article/save")
+    //  */
+    // public function save(){
+    //     $entityManager = $this->getDoctrine()->getManager();
 
-        $article = new Article();
-        $article->setTitle('Article One');
-        $article->setBody("This is the body for article one.");
+    //     $article = new Article();
+    //     $article->setTitle('Article Two');
+    //     $article->setBody("This is the body for article two.");
 
-        $entityManager->presist($article);
+    //     $entityManager->persist($article);
 
-        $entityManager->flush();
+    //     $entityManager->flush();
 
-        return new Response('Saves an article with the id of '.$article->getId());
+    //     return new Response('Saves an article with the id of '.$article->getId());
     }
 }
