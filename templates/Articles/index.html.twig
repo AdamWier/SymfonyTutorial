@@ -4,7 +4,7 @@
 
 {% block body %}
     {% if articles %}
-    <table class="table table-striped">
+    <table class="table table-striped" id="articles">
         <thead>
             <tr>
                 <th>Article Title</th>
@@ -15,10 +15,17 @@
             {% for article in articles %}
                 <tr>
                     <td>{{article.title}}</td>
-                    <td><a class="btn btn-dark" href="./article/{{article.id}}">Show</a>
+                    <td>
+                        <a class="btn btn-dark" href="./article/{{article.id}}">Show</a>
+                        <a class="btn btn-danger delete-article" data-id="{{ article.id }}" href="#">Delete</a>
+                    </td>
                 </tr>
             {% endfor %}
     {% else %}
     <p>No articles to display</p>
     {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+<script src="./js/main.js"></script>
 {% endblock %}
