@@ -12,15 +12,25 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class ArticleController extends Controller {
     /**
-     * @Route("/")
+     * @Route("/", name="article_list")
      * @Method({"GET"})
      */
     public function index(){
         //return new Response('<html><body>Hello World</body></html>');
 
-        $articles = ['Article 1', 'Article 2'];
+        $articles = $this->getDoctrine()->getRepository(Article::class)->findAll();
 
         return $this->render('articles/index.html.twig', array ("articles"=>$articles));
+    }
+
+    /**
+     * @ROute("/article/{id}", name="article_show")
+     */
+    public function show($id){
+        $article = $this->getDoctrine()->getRepository(Article::class)->find($id);
+
+        return $this->render('articles/show.html.twig', array ('article'=>$article));
+
     }
 
     // /**
@@ -38,5 +48,5 @@ class ArticleController extends Controller {
     //     $entityManager->flush();
 
     //     return new Response('Saves an article with the id of '.$article->getId());
-    }
+    //}
 }

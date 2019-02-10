@@ -14,8 +14,8 @@
         <tbody>
             {% for article in articles %}
                 <tr>
-                    <td>{{article}}</td>
-                    <td><a class="btn btn-dark" href="article/1/">Show</a>
+                    <td>{{article.title}}</td>
+                    <td><a class="btn btn-dark" href="./article/{{article.id}}">Show</a>
                 </tr>
             {% endfor %}
     {% else %}
